@@ -1,0 +1,10 @@
+#FROM container-registry.oracle.com/os/oraclelinux:8-slim
+#FROM alpine:3.18
+#FROM gcr.io/distroless/base
+FROM seepine/alpine-glibc
+
+ARG APP_FILE
+EXPOSE 8080
+
+COPY target/${APP_FILE} app
+ENTRYPOINT ["/app"]
